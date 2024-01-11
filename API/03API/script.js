@@ -54,27 +54,28 @@ const getSearchedArt = async (event) => {
     nothingFound.innerText = "Nothing found";
     nothingFound.className = "cardContainer";
     cardsContainer.append(nothingFound);
+  } else {
+    itemsData.map((itemData) => {
+      const cardContainer = document.createElement("div");
+      cardContainer.className = "cardContainer";
+      const author = document.createElement("h3");
+      if (itemData.creators.length === 0) {
+        author.innerText = "no author";
+      } else {
+        author.innerText = itemData.creators[0].description;
+      }
+      const title = document.createElement("h3");
+      title.innerText = itemData.title;
+      const date = document.createElement("h4");
+      date.innerText = itemData.creation_date;
+      const image = document.createElement("img");
+      image.className = "image";
+      image.src = itemData.images.web.url;
+      image.alt = "art photo";
+      cardContainer.append(author, title, date, image);
+      cardsContainer.append(cardContainer);
+    });
   }
-  itemsData.map((itemData) => {
-    const cardContainer = document.createElement("div");
-    cardContainer.className = "cardContainer";
-    const author = document.createElement("h3");
-    if (itemData.creators.length === 0) {
-      author.innerText = "no author";
-    } else {
-      author.innerText = itemData.creators[0].description;
-    }
-    const title = document.createElement("h3");
-    title.innerText = itemData.title;
-    const date = document.createElement("h4");
-    date.innerText = itemData.creation_date;
-    const image = document.createElement("img");
-    image.className = "image";
-    image.src = itemData.images.web.url;
-    image.alt = "art photo";
-    cardContainer.append(author, title, date, image);
-    cardsContainer.append(cardContainer);
-  });
 };
 
 const addEnterKeypress = (event) => {

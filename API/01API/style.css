@@ -1,0 +1,19 @@
+body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 5vh;
+  background-color: beige;
+}
+
+button {
+  font-size: 5vh;
+  border-radius: 3%;
+}
+
+.image {
+  height: 60vh;
+  margin: 10vh;
+  border-radius: 3%;
+}

@@ -1,0 +1,31 @@
+body {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: center;
+  margin: 5vh;
+  background-color: beige;
+  text-align: center;
+  gap: 20px;
+}
+
+input, button {
+  font-size: 3vh;
+  border-radius: 3%;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  width: 270px;
+  border: 1px solid black;
+}
+

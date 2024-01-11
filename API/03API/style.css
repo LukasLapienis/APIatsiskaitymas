@@ -1,0 +1,45 @@
+body {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 5vh;
+  background-color: beige;
+  text-align: center;
+  gap: 20px;
+}
+
+h3, h4 {
+  width: 100%;
+}
+
+input, button {
+  font-size: 3vh;
+  border-radius: 3%;
+}
+
+.cardsContainer {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.cardContainer {
+  display: flex;
+  flex-wrap: wrap;
+  width: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.imageContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.image {
+  width: 200px;
+  height: 200px;
+  margin: 5px;
+}
+

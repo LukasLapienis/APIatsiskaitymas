@@ -50,10 +50,10 @@ const getSearchedArt = async (event) => {
   const data = await result.json();
   const itemsData = data.data;
   if (itemsData.length === 0) {
-    const noCards = document.createElement("h3");
-    noCards.innerText = "Nothing found";
-    noCards.className = "cardContainer";
-    cardsContainer.append(noCards);
+    const nothingFound = document.createElement("h3");
+    nothingFound.innerText = "Nothing found";
+    nothingFound.className = "cardContainer";
+    cardsContainer.append(nothingFound);
   }
   itemsData.map((itemData) => {
     const cardContainer = document.createElement("div");

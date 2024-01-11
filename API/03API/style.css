@@ -13,23 +13,17 @@ body {
   gap: 20px;
 }
 
-h3,
-h4 {
-  width: 100%;
+.buttonContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }
 
 input,
 button {
   font-size: 3vh;
   border-radius: 3%;
-}
-
-.buttonContainer {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-wrap: wrap;
-
 }
 
 .cardsContainer {
@@ -49,6 +43,11 @@ button {
   width: 210px;
   border: 1px solid black;
   background-color: brown;
+}
+
+h3,
+h4 {
+  width: 100%;
 }
 
 .imageContainer {

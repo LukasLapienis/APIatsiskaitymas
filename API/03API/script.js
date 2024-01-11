@@ -15,20 +15,22 @@ button.textContent = "Search ArtWorks";
 buttonContainer.append(input, button);
 
 const getArt = async () => {
-  const result = await fetch(`https://openaccess-api.clevelandart.org/api/artworks/?q=art&has_image=1&limit=20`);
+  const result = await fetch(
+    `https://openaccess-api.clevelandart.org/api/artworks/?q=art&has_image=1&limit=20`
+  );
   const data = await result.json();
-  const itemsData = data.data
-  console.log(data)
-  console.log(itemsData)
+  const itemsData = data.data;
+  console.log(data);
+  console.log(itemsData);
   itemsData.map((itemData) => {
-    const cardContainer = document.createElement("div")
+    const cardContainer = document.createElement("div");
     cardContainer.className = "cardContainer";
     const image = document.createElement("img");
     image.className = "image";
     image.src = itemData.images.web.url;
-    image.alt = "art photo"
+    image.alt = "art photo";
     cardContainer.append(image);
-    cardsContainer.append(cardContainer)
+    cardsContainer.append(cardContainer);
   });
 };
 
@@ -40,33 +42,38 @@ const getSearchedArt = async (event) => {
   const inputValue = input.value.trim();
   input.value = "";
   if (inputValue === "") {
-    alert("enter artwork to search")
+    alert("enter artwork to search");
   }
-  const result = await fetch(`https://openaccess-api.clevelandart.org/api/artworks/?q=${inputValue}&has_image=1&limit=20`);
+  const result = await fetch(
+    `https://openaccess-api.clevelandart.org/api/artworks/?q=${inputValue}&has_image=1&limit=20`
+  );
   const data = await result.json();
-  const itemsData = data.data
-  console.log(data)
-  console.log(itemsData)
+  const itemsData = data.data;
+  if (itemsData.length === 0) {
+    const noCards = document.createElement("h3");
+    noCards.innerText = "Nothing found";
+    noCards.className = "cardContainer";
+    cardsContainer.append(noCards);
+  }
   itemsData.map((itemData) => {
-    const cardContainer = document.createElement("div")
+    const cardContainer = document.createElement("div");
     cardContainer.className = "cardContainer";
-    const author = document.createElement("h3")
+    const author = document.createElement("h3");
     if (itemData.creators.length === 0) {
-      author.innerText = "no author"
+      author.innerText = "no author";
+    } else {
+      author.innerText = itemData.creators[0].description;
     }
-    else {
-      author.innerText = itemData.creators[0].description
-    }
-    const title = document.createElement("h3")
-    title.innerText = itemData.title
-    const date = document.createElement("h4")
-    date.innerText = itemData.creation_date
+    const title = document.createElement("h3");
+    title.innerText = itemData.title;
+    const date = document.createElement("h4");
+    date.innerText = itemData.creation_date;
     const image = document.createElement("img");
     image.className = "image";
     image.src = itemData.images.web.url;
-    image.alt = "art photo"
+    image.alt = "art photo";
     cardContainer.append(author, title, date, image);
-    cardsContainer.append(cardContainer)
+    cardsContainer.append(cardContainer);
   });
 };
 
@@ -80,5 +87,3 @@ button.addEventListener("click", getSearchedArt);
 input.addEventListener("keypress", addEnterKeypress);
 
 getArt();
-
-

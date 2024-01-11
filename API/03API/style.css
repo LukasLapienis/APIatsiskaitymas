@@ -8,11 +8,13 @@ body {
   gap: 20px;
 }
 
-h3, h4 {
+h3,
+h4 {
   width: 100%;
 }
 
-input, button {
+input,
+button {
   font-size: 3vh;
   border-radius: 3%;
 }
@@ -29,6 +31,7 @@ input, button {
   width: 200px;
   justify-content: center;
   align-items: center;
+  border: 1px solid black;
 }
 
 .imageContainer {
@@ -42,4 +45,3 @@ input, button {
   height: 200px;
   margin: 5px;
 }
-
